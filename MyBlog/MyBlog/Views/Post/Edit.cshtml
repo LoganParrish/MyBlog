@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+<form action="@Url.Action("Edit", "Post")" method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -24,14 +24,6 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.DateCreate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DateCreate)
-            @Html.ValidationMessageFor(model => model.DateCreate)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.Title)
         </div>
         <div class="editor-field">
@@ -43,17 +35,10 @@
             @Html.LabelFor(model => model.ImageUrl)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ImageUrl)
+            <input type="file" name="Image" id="Image" id="Image" />
             @Html.ValidationMessageFor(model => model.ImageUrl)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Likes)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Likes)
-            @Html.ValidationMessageFor(model => model.Likes)
-        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.AuthorID, "Author")
@@ -67,7 +52,7 @@
             <input type="submit" value="Save" />
         </p>
     </fieldset>
-}
+</form>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

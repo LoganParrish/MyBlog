@@ -6,7 +6,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+<form action="@Url.Action("Create", "Post")" method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -22,35 +22,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.DateCreate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DateCreate)
-            @Html.ValidationMessageFor(model => model.DateCreate)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.Title)
         </div>
         <div class="editor-field">
+
             @Html.EditorFor(model => model.Title)
             @Html.ValidationMessageFor(model => model.Title)
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(model => model.ImageUrl)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ImageUrl)
-            @Html.ValidationMessageFor(model => model.ImageUrl)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Likes)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Likes)
-            @Html.ValidationMessageFor(model => model.Likes)
+        <div>
+        <input type="file" name="Image" id="Image" id="Image" />
+            @Html.ValidationMessageFor(model => model)
         </div>
 
         <div class="editor-label">
@@ -65,7 +49,7 @@
             <input type="submit" value="Create" />
         </p>
     </fieldset>
-}
+</form>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
